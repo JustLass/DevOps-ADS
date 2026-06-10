@@ -1,0 +1,21 @@
+{
+  "name": "devops-ads",
+  "version": "1.0.0",
+  "description": "Aplicacao Node.js simples para a avaliacao N3 de DevOps.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "lint": "node --check src/app.js && node --check src/server.js && node --check test/app.test.js",
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage"
+  },
+  "keywords": [
+    "nodejs",
+    "devops",
+    "ci",
+    "cd"
+  ],
+  "author": "Rafael",
+  "license": "MIT"
+}
