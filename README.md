@@ -9,6 +9,7 @@ unidade e deploy em uma instancia EC2.
 - Branches de feature
 - Aplicacao Node.js
 - Testes de unidade
+- Teste de interface com Selenium
 - Analise estatica simples com `node --check`
 - Cobertura com o test runner nativo do Node.js
 - Workflow de CI/CD
@@ -16,7 +17,10 @@ unidade e deploy em uma instancia EC2.
 
 ## Como rodar localmente
 
-Requisito: Node.js 22 ou superior.
+Requisitos:
+
+- Node.js 22 ou superior
+- Google Chrome instalado para o teste de interface com Selenium
 
 ```bash
 npm install
@@ -41,7 +45,11 @@ Rotas principais:
 npm run lint
 npm test
 npm run coverage
+npm run test:ui
+npm run test:all
 ```
+
+O teste de interface roda em modo headless e abre a pagina inicial com Selenium.
 
 ## Workflows
 
@@ -51,6 +59,7 @@ O workflow `.github/workflows/ci-cd.yml` executa:
 - analise estatica
 - testes de unidade
 - cobertura
+- teste de interface com Selenium
 - geracao de artefato da aplicacao
 
 O workflow `.github/workflows/deploy-ec2.yml` executa:
