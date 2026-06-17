@@ -38,6 +38,9 @@ jobs:
       - name: Coverage
         run: npm run coverage
 
+      - name: Selenium interface test
+        run: npm run test:ui
+
   delivery:
     name: Continuous Delivery
     runs-on: ubuntu-latest
