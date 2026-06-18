@@ -67,6 +67,7 @@ O workflow `.github/workflows/deploy-ec2.yml` executa:
 - instalacao das dependencias
 - testes antes do deploy
 - envio do pacote para o EC2
+- instalacao automatica do Node.js/npm no EC2 quando necessario
 - restart da aplicacao com PM2
 
 ## Secrets para deploy
