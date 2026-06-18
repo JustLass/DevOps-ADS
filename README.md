@@ -75,11 +75,14 @@ Configurar no GitHub em `Settings > Secrets and variables > Actions`:
 
 ```text
 EC2_HOST
-EC2_USER
 EC2_SSH_KEY
+EC2_USER      opcional, padrao ec2-user
 EC2_APP_DIR   opcional
 APP_PORT      opcional
 ```
+
+Para Amazon Linux, normalmente nao precisa configurar `EC2_USER`, pois o
+workflow usa `ec2-user` por padrao. Para Ubuntu, configure `EC2_USER=ubuntu`.
 
 ## Roteiro da apresentacao
 
