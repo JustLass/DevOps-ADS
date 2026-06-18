@@ -4,7 +4,7 @@ const { test } = require("node:test");
 const { Builder, Browser, By, until } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
 
-const { createServer } = require("../src/app");
+const { createServer, getAppInfo } = require("../src/app");
 
 function startTestServer() {
   const server = createServer();
@@ -70,13 +70,11 @@ test("Selenium opens the home page and validates the interface", async (t) => {
   const heading = await driver.wait(until.elementLocated(By.css("h1")), 5000);
   const message = await driver.findElement(By.css("p"));
   const status = await driver.findElement(By.css("code"));
+  const appInfo = getAppInfo();
 
-  assert.equal(title, "DevOps ADS");
-  assert.equal(await heading.getText(), "DevOps ADS");
-  assert.match(
-    await message.getText(),
-    /Aplicacao Node\.js rodando com CI, CD e testes de unidade\./,
-  );
-  assert.match(await status.getText(), /Status: ok/);
-  assert.match(await status.getText(), /Versao: 1\.0\.0/);
+  assert.equal(title, appInfo.name);
+  assert.equal(await heading.getText(), appInfo.name);
+  assert.equal(await message.getText(), appInfo.message);
+  assert.match(await status.getText(), new RegExp(`Status: ${appInfo.status}`));
+  assert.match(await status.getText(), new RegExp(`Versao: ${appInfo.version}`));
 });
