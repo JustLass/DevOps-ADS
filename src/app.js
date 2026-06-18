@@ -4,7 +4,7 @@ const appInfo = {
   name: "DevOps ADS",
   version: "1.0.0",
   status: "ok",
-  message: "Aplicação Node.js rodando para Demo em aula N3",
+  message: "Aplicacao atualizada durante a apresentacao da N3.",
 };
 
 function getAppInfo() {
